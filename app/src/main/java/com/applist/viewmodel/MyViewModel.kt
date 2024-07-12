@@ -36,13 +36,14 @@ class MyViewModel(
                 is Resource.Success -> {
 
                     val res = list.result as AppListResponse.Response
-                    println("response : ${res.data?.appList?.size}" )
+                    _loginResponse.value = ItemState(itemList = res.data?.appList!!)
+                    /*println("response : ${res.data?.appList?.size}" )
                     res.data?.appList?.forEach {
                         println("item : ${it.app_name}")
                     }
                     res.data?.appList?.let {
                         _loginResponse.value = ItemState(itemList = it)
-                    }
+                    }*/
 
                 }
                 is Resource.Failure -> {
